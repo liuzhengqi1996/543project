@@ -21,7 +21,7 @@ string change_13(string input,int seed){
     for (int i =0;i<n;i++){
 	srand(seed+2373*i);
         int r = random()%100;
-	if (r < 13){
+	if (r < 14){
 	    srand(seed+1067*i);
 	    input[i] = (char)(random()%(127-33) +33);
 	}
@@ -59,15 +59,16 @@ int main(int argc, char* argv[]){
 	    init_vector[j] = add_10(init_vector[j],prng_seed+10067*i);
 	    }
 	}
-        else{
-	    for (int j =0 ;j<length;j++){
-	    B[j] = change_13(init_vector[j],prng_seed+1059*i);
-	    }
-	}
+        
+	for (int j =0 ;j<length;j++){
+	 B[j] = change_13(init_vector[j],prng_seed+1059*i);
+	                            }
+	
+	 
 	for (int j =0 ;j<length;j++){
            cout<<B[j]<<endl;
 	}
-	cout<<'\n'<<endl;
+//cout<<'\n'<<endl;
     } 
 
         
