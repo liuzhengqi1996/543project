@@ -1,0 +1,2 @@
+prng_seed: 1
+num_iterations: 10000

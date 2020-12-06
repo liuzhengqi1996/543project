@@ -8,7 +8,7 @@ using namespace std;
 string add_10(string input,int seed){
     for(int i=0;i<10;i++){
 	char ch;
-	srand(seed+11987*i);
+	srand(seed+87*i);
         ch = (char)(random()%(127-33) + 33);
         input.push_back(ch);
     }
@@ -19,10 +19,10 @@ string change_13(string input,int seed){
     int n = input.size();
     srand(seed);
     for (int i =0;i<n;i++){
-	srand(seed+2373*i);
+	srand(seed+73*i);
         int r = random()%100;
 	if (r < 14){
-	    srand(seed+1067*i);
+	    srand(seed+67*i);
 	    input[i] = (char)(random()%(127-33) +33);
 	}
     }
@@ -43,6 +43,9 @@ int main(int argc, char* argv[]){
     ifstream file;
     string init;
     file.open("seed");
+    if (!file){
+        file.open("__seed__");
+    }
     while(file){
         getline(file,init);	
 	init_vector.push_back(init);
@@ -56,12 +59,12 @@ int main(int argc, char* argv[]){
         if ( i >1 && i%500 == 0 ){
 	    for (int j =0;j<length;j++){ 
 		    
-	    init_vector[j] = add_10(init_vector[j],prng_seed+10067*i);
+	    init_vector[j] = add_10(init_vector[j],prng_seed+67*i);
 	    }
 	}
         
 	for (int j =0 ;j<length;j++){
-	 B[j] = change_13(init_vector[j],prng_seed+1059*i);
+	 B[j] = change_13(init_vector[j],prng_seed+59*i);
 	                            }
 	
 	 
